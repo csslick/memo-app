@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbit', sans-serif;
+}
+
+a { 
+  text-decoration: none;
+  color: inherit;
+}
+
+ul { list-style-type: none; }
+
+main {
+  padding: 1rem;
+}
+
+header {
+  padding: 20px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.memo-list {
+  margin-top: 20px;
+
+  li {
+    padding: 1rem;
+    background: #eee;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .edit-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .btn {
+        padding: 6px 1em;
+        background: steelblue;
+        color: #fff;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .btn.btn-danger{ background: #e60; }
+    }
+  }
+}
