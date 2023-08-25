@@ -1,19 +1,24 @@
+import Link from 'next/link'
 
-export default function Home() {
+// 서버 컴포넌트에서 fetch
+export default async function Home() {
+  const json = await (await fetch(`http://localhost:9999/memos`)).json();
+  const memos = await json;
+  console.log(memos);
 
   return (
     <main className='home'>
       <h2>전체메모</h2>
       <ul className="memo-list">
         {
-          [1,2,3].map((_, i) => (
-            <li>
-              <h3><a href={`/read/${i}`}>memo {i}</a></h3>
+          memos.map((memo, key) => (
+            <li key={key}>
+              <h3><Link href={`/read/${memo.id}`}>{memo.title}</Link></h3>
               <div className="edit-group">
-                <a className='btn' href={`/update/${i}`}>수정</a>
+                <Link className='btn' href={`/update/${memo.id}`}>수정</Link>
                 <button className='btn btn-danger'>삭제</button>
               </div>
-            </li>
+            </li> 
           ))
         }
       </ul>
