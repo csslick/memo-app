@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import DeleteBtn from '@/components/DeleteBtn'; //
 
 // 서버 컴포넌트에서 fetch
 export default async function Home() {
@@ -7,7 +8,6 @@ export default async function Home() {
   });
   const json = await res.json();
   const memos = await json;
-  // console.log(memos);
 
   return (
     <main className='home'>
@@ -19,7 +19,7 @@ export default async function Home() {
               <h3><Link href={`/read/${memo.id}`}>{memo.title}</Link></h3>
               <div className="edit-group">
                 <Link className='btn' href={`/update/${memo.id}`}>수정</Link>
-                <button className='btn btn-danger'>삭제</button>
+                <DeleteBtn id={memo.id} />
               </div>
             </li> 
           ))
