@@ -30,6 +30,17 @@ header {
   align-items: center;
 }
 
+.btn {
+  padding: 6px 1em;
+  background: steelblue;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn.btn-danger { background: #e60; }
+
 .memo-list {
   margin-top: 20px;
 
@@ -45,15 +56,23 @@ header {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      .btn {
-        padding: 6px 1em;
-        background: steelblue;
-        color: #fff;
-        border: none;
-        font-size: 14px;
-        cursor: pointer;
-      }
-      .btn.btn-danger{ background: #e60; }
     }
   }
 }
+
+main {
+  max-width: 768px;
+  margin: 0 auto;
+  h2 { margin-bottom: 1em;}
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 10px;
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+  }
+}
+
+

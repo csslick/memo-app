@@ -2,7 +2,10 @@ import Link from 'next/link'
 
 // 서버 컴포넌트에서 fetch
 export default async function Home() {
-  const json = await (await fetch(`http://localhost:9999/memos`)).json();
+  const res = await fetch(`http://localhost:9999/memos`, {
+    cache: 'no-store'
+  });
+  const json = await res.json();
   const memos = await json;
   console.log(memos);
 
