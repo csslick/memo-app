@@ -1,11 +1,17 @@
 
-export default function Read(props) {
+export default async function Read(props) {
   console.log(props)
   const { id } = props.params;
+  const res = await fetch(`http://localhost:9999/memos/${id}`, {
+    cache: 'no-store'
+  });
+  const json = await res.json();
+  const memo = await json;
 
   return (
-    <main>
-      <h2>Memo {id}</h2>
+    <main className="read">
+      <h2>{memo.title}</h2>
+      <p>{memo.body}</p>
     </main>
   )
 }
