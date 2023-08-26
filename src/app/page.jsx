@@ -7,7 +7,7 @@ export default async function Home() {
   });
   const json = await res.json();
   const memos = await json;
-  console.log(memos);
+  // console.log(memos);
 
   return (
     <main className='home'>
