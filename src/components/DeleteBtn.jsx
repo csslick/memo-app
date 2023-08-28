@@ -6,7 +6,7 @@ export default function DeleteBtn(props) {
   const router = useRouter();
   const id = props.id;
   const handleDelete = () => {
-    fetch(`http://localhost:9999/memos/${id}`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"

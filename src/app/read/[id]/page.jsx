@@ -2,7 +2,7 @@
 export default async function Read(props) {
   console.log(props)
   const { id } = props.params;
-  const res = await fetch(`http://localhost:9999/memos/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${id}`, {
     cache: 'no-store'
   });
   const json = await res.json();

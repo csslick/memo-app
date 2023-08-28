@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function Create() {
   const router = useRouter()
-
+  console.log('create: ', process.env.NEXT_PUBLIC_API_URL)
   return (
     <main className="create">
       <h2>메모 작성하기</h2>
@@ -15,7 +15,7 @@ export default function Create() {
         const body = e.target.body.value;
         
         // 서버전송
-        fetch(`http://localhost:9999/memos`, {
+        fetch(process.env.NEXT_PUBLIC_API_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
