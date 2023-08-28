@@ -9,7 +9,7 @@ export default function Update(props) {
   const router = useRouter();
 
   useEffect(() => {
-    fetch(`http://localhost:9999/memos/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/${id}`)
       .then(res => res.json())
       .then(data => {
         setTitle(data.title)
@@ -27,7 +27,7 @@ export default function Update(props) {
         const body = e.target.body.value;
 
         // 서버전송
-        fetch(`http://localhost:9999/memos/${id}`, {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/${id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json"

@@ -3,7 +3,7 @@ import DeleteBtn from '@/components/DeleteBtn'; //
 
 // 서버 컴포넌트에서 fetch
 export default async function Home() {
-  const res = await fetch(`http://localhost:9999/memos`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
     cache: 'no-store'
   });
   const json = await res.json();
